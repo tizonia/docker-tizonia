@@ -34,6 +34,8 @@ docker run -it --rm \
 This script provides access inside the container to Tizonia's configuration
 file in the host directory '$HOME/.config/tizonia'.
 
+> 'chmod a+rwx $HOME/.config/tizonia' to allow write access to Tizonia running inside the container.
+
 Once the script is in your path, the just call it with the usual Tizonia
 commands:
 

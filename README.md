@@ -1,6 +1,6 @@
 # Tizonia on Docker container
 
-Containerized [**Tizonia**](https://www.tizonia.org/) cloud music player that uses the host's sound system.
+Containerized [**Tizonia**](http://www.tizonia.org/) cloud music player that uses the host's sound system.
 
 [![](https://images.microbadger.com/badges/image/tizonia/docker-tizonia.svg)](http://microbadger.com/images/tizonia/docker-tizonia "Get your own image badge on microbadger.com")
 
@@ -46,3 +46,7 @@ $ docker-tizonia --youtube-audio-mix-search "Queen Official"
 # License
 
 The [Unlicense](LICENSE.md).
+
+# Tizonia's main repo
+
+See [tizonia-openmax-il](https://github.com/tizonia/tizonia-openmax-il).

@@ -31,16 +31,24 @@ docker run -it --rm \
 
 ```
 
-This script provides access inside the container to Tizonia's configuration
-file in the host directory '$HOME/.config/tizonia'.
+The script bind mounts the host's '$HOME/.config/tizonia' to make
+'tizonia.conf' available inside the container.
 
-> 'chmod a+rwx $HOME/.config/tizonia' to allow write access to Tizonia running inside the container.
+> NOTE: The Tizonia process running inside the container needs 'rwx'
+> permissions on this directory.
 
-Once the script is in your path, the just call it with the usual Tizonia
-commands:
+Once the script is in your path, and the permissions of '$HOME/.config/tizonia'
+have been changed, just use the usual Tizonia commands:
 
 ``` bash
 
+# Change Tizonia's config dir permissions
+$ chmod a+wrx $HOME/.config/tizonia
+
+# Install the wrapper script in a location in your PATH
+$ sudo install docker-tizonia /usr/local/bin
+
+# Pass the usual Tizonia commands to the wrapper
 $ docker-tizonia --youtube-audio-mix-search "Queen Official"
 
 ```

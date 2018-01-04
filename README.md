@@ -1,8 +1,8 @@
+[![](https://images.microbadger.com/badges/image/tizonia/docker-tizonia.svg)](http://microbadger.com/images/tizonia/docker-tizonia "Get your own image badge on microbadger.com")
+
 # Tizonia on Docker container
 
 Containerized [**Tizonia**](http://www.tizonia.org/) cloud music player that uses the host's sound system.
-
-[![](https://images.microbadger.com/badges/image/tizonia/docker-tizonia.svg)](http://microbadger.com/images/tizonia/docker-tizonia "Get your own image badge on microbadger.com")
 
 ## Audio Output
 

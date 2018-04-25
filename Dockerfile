@@ -1,5 +1,6 @@
 FROM ubuntu:latest
 
+#updated by b_rad <brae/dot/04/plus/tizonia/at/gmail/dot/com>
 LABEL maintainer "Juan A. Rubio <juan.rubio@aratelia.com>"
 
 # Install Tizonia, and dependencies
@@ -34,6 +35,8 @@ RUN apt-get update && apt-get install -y \
     pafy \
     pycountry \
     titlecase \
+    fuzzywuzzy \
+    python-levenshtein \
     && apt-get purge --auto-remove -y \
     build-essential \
     python-dev \

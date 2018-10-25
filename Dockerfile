@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:16.04
 
 #updated by b_rad <brae/dot/04/plus/tizonia/at/gmail/dot/com>
 LABEL maintainer "Juan A. Rubio <juan.rubio@aratelia.com>"

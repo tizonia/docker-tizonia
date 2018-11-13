@@ -20,14 +20,16 @@ Use the convenience script [docker-tizonia](docker-tizonia):
 ``` bash
 #!/bin/bash
 
-USER_ID=$(id -u)
-GROUP_ID=$(id -g)
+USER_ID=$(id -u);
+GROUP_ID=$(id -g);
 
 docker run -it --rm \
-  --volume=/run/user/${USER_ID}/pulse:/run/user/${GROUP_ID}/pulse \
-  --volume="$HOME/.config/tizonia":/home/tizonia/.config/tizonia \
-  --name tizonia \
-  tizonia/docker-tizonia "$@"
+    -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
+    --volume=${XDG_RUNTIME_DIR}/pulse:${XDG_RUNTIME_DIR}/pulse \
+    --volume="${HOME}/.config/tizonia":/home/tizonia/.config/tizonia \
+    --volume "${HOME}/.config/pulse/cookie":/home/tizonia/.config/pulse/cookie \
+    --name tizonia \
+    tizonia/docker-tizonia "$@";
 
 ```
 

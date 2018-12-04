@@ -1,7 +1,5 @@
 FROM ubuntu:18.04
-
-#updated by b_rad <brae/dot/04/plus/tizonia/at/gmail/dot/com>
-LABEL maintainer "Juan A. Rubio <juan.rubio@aratelia.com>"
+LABEL maintainer "Josh Sunnex <jsunnex@gmail.com>"
 
 
 ###############################################################
@@ -11,16 +9,16 @@ LABEL maintainer "Juan A. Rubio <juan.rubio@aratelia.com>"
 ###############################################################
 
 # Version of Tizonia to be installed
-ARG TIZONIA_VERSION=0.15.0-1
+ARG TIZONIA_VERSION=0.16.0-1
 
 # Configure username for executing process
 ENV UNAME tizonia
 
 # A list of dependencies installed with
 ARG PYTHON_DEPENDENCIES=" \
-        gmusicapi>=11.0.3 \
+        gmusicapi>=11.1.0 \
         soundcloud>=0.5.0 \
-        youtube-dl>=2018.11.7 \
+        youtube-dl>=2018.12.3 \
         pafy>=0.5.4 \
         pycountry>=18.5.26 \
         titlecase>=0.12.0 \

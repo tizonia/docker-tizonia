@@ -16,28 +16,29 @@ ENV UNAME tizonia
 
 # A list of dependencies installed with
 ARG PYTHON_DEPENDENCIES=" \
-        gmusicapi>=11.1.0 \
-        soundcloud>=0.5.0 \
-        youtube-dl>=2018.12.3 \
-        pafy>=0.5.4 \
-        pycountry>=18.5.26 \
-        titlecase>=0.12.0 \
         fuzzywuzzy>=0.17.0 \
+        gmusicapi>=11.1.1 \
+        pafy>=0.5.4 \
+        pycountry>=18.12.8 \
         python-levenshtein>=0.12.0 \
+        soundcloud>=0.5.0 \
+        spotipy>=2.4.4 \
+        titlecase>=0.12.0 \
+        youtube-dl>=2018.12.9 \
     "
 
 # Build Dependencies (not required in final image)
 ARG BUILD_DEPENDENCIES=" \
+        build-essential \
         curl \
         gnupg \
-        build-essential \
-        python-dev \
         libffi-dev \
         libssl-dev \
-        python-wheel \
+        python-dev \
         python-pip \
         python-pkg-resources \
         python-setuptools \
+        python-wheel \
     "
 
 ###############################################################

@@ -9,7 +9,7 @@ LABEL maintainer "Josh Sunnex <jsunnex@gmail.com>"
 ###############################################################
 
 # Version of Tizonia to be installed
-ARG TIZONIA_VERSION=0.16.0-1
+ARG TIZONIA_VERSION=0.17.0-1
 
 # Configure username for executing process
 ENV UNAME tizonia
@@ -17,14 +17,14 @@ ENV UNAME tizonia
 # A list of dependencies installed with
 ARG PYTHON_DEPENDENCIES=" \
         fuzzywuzzy>=0.17.0 \
-        gmusicapi>=11.1.1 \
+        gmusicapi>=12.0.0 \
         pafy>=0.5.4 \
         pycountry>=18.12.8 \
         python-levenshtein>=0.12.0 \
         soundcloud>=0.5.0 \
         spotipy>=2.4.4 \
         titlecase>=0.12.0 \
-        youtube-dl>=2018.12.9 \
+        youtube-dl>=2019.1.17 \
     "
 
 # Build Dependencies (not required in final image)

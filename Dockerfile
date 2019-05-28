@@ -9,7 +9,7 @@ LABEL maintainer "Josh Sunnex <jsunnex@gmail.com>"
 ###############################################################
 
 # Version of Tizonia to be installed
-ARG TIZONIA_VERSION=0.17.0-1
+ARG TIZONIA_VERSION=0.18.0-1
 
 # Configure username for executing process
 ENV UNAME tizonia
@@ -24,7 +24,7 @@ ARG PYTHON_DEPENDENCIES=" \
         soundcloud>=0.5.0 \
         spotipy>=2.4.4 \
         titlecase>=0.12.0 \
-        youtube-dl>=2019.2.8 \
+        youtube-dl>=2019.5.20 \
     "
 
 # Build Dependencies (not required in final image)

@@ -17,14 +17,14 @@ ENV UNAME tizonia
 # A list of dependencies installed with
 ARG PYTHON_DEPENDENCIES=" \
         fuzzywuzzy>=0.17.0 \
-        gmusicapi>=12.0.0 \
+        gmusicapi>=12.1.1 \
         pafy>=0.5.4 \
         pycountry>=18.12.8 \
         python-levenshtein>=0.12.0 \
         soundcloud>=0.5.0 \
         spotipy>=2.4.4 \
         titlecase>=0.12.0 \
-        youtube-dl>=2019.5.20 \
+        youtube-dl>=2019.8.2 \
     "
 
 # Build Dependencies (not required in final image)

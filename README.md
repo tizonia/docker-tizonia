@@ -6,13 +6,19 @@ Containerized [**Tizonia**](http://www.tizonia.org/) cloud music player that use
 
 ## Mac Support
 Too allow for usage on Mac, it is required that pulse audio to be installed via homebrew, and the following lines in /usr/local/Cellar/pulseaudio/13.0/etc/pulse/default.pa to be uncommented:
+
 load-module module-esound-protocol-tcp
 load-module module-native-protocol-tcp
+
 Too adjust the device being used for output, bring up a list of possible output devices and select one as the default sink:
 pactl list short sinks
+
 pacmd set-default-sink n (Where N is the chosen output number)
+
 Next, start the Pulseaudio daemon:
+
 pulseaudio --load=module-native-protocol-tcp --exit-idle-time=-1 --daemon
+
 You should now be able to utilize the docker container to route audio from the docker-image to the client device!
 
 ## Audio Output

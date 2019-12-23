@@ -8,6 +8,7 @@ docker run -it --rm \
     --volume=${XDG_RUNTIME_DIR}/pulse:${XDG_RUNTIME_DIR}/pulse \
     --volume="${HOME}/.config/tizonia":/home/tizonia/.config/tizonia \
     --volume "${HOME}/.config/pulse/cookie":/home/tizonia/.config/pulse/cookie \
+    --volume="${HOME}/.cache":/home/tizonia/.cache \
     --name tizonia \
     tizonia/docker-tizonia "$@";
 

@@ -28,6 +28,7 @@ docker run -it --rm \
     --volume=${XDG_RUNTIME_DIR}/pulse:${XDG_RUNTIME_DIR}/pulse \
     --volume="${HOME}/.config/tizonia":/home/tizonia/.config/tizonia \
     --volume "${HOME}/.config/pulse/cookie":/home/tizonia/.config/pulse/cookie \
+    --volume="${HOME}/.cache":/home/tizonia/.cache \
     --name tizonia \
     tizonia/docker-tizonia "$@";
 
@@ -38,6 +39,10 @@ The script bind mounts the host's '$HOME/.config/tizonia' to make
 
 > NOTE: The Tizonia process running inside the container needs 'rwx'
 > permissions on this directory.
+
+The script also bind mounts the host's '$HOME/.cache' to allow debug logs to be
+written to disk. For example, gmusicapi logs for Google Play Music can be found
+at '$HOME/.cache/gmusicapi/log/gmusicapi.log'
 
 Once the script is in your path, and the permissions of '$HOME/.config/tizonia'
 have been changed, just use the usual Tizonia commands:

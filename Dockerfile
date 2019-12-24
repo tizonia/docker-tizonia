@@ -9,7 +9,7 @@ LABEL maintainer "Josh Sunnex <jsunnex@gmail.com>"
 ###############################################################
 
 # Version of Tizonia to be installed
-ARG TIZONIA_VERSION=0.18.0-1
+ARG TIZONIA_VERSION=0.19.0-1
 
 # Configure username for executing process
 ENV UNAME tizonia
@@ -19,6 +19,7 @@ ARG PYTHON_DEPENDENCIES=" \
         fuzzywuzzy>=0.17.0 \
         gmusicapi>=12.1.1 \
         pafy>=0.5.4 \
+        plexapi>=3.0.0 \
         pycountry>=19.8.18 \
         python-levenshtein>=0.12.0 \
         soundcloud>=0.5.0 \
@@ -34,11 +35,11 @@ ARG BUILD_DEPENDENCIES=" \
         gnupg \
         libffi-dev \
         libssl-dev \
-        python-dev \
-        python-pip \
-        python-pkg-resources \
-        python-setuptools \
-        python-wheel \
+        python3-dev \
+        python3-pip \
+        python3-pkg-resources \
+        python3-setuptools \
+        python3-wheel \
     "
 
 ###############################################################
@@ -62,10 +63,11 @@ RUN \
         && apt-get update \
     && \
     echo "**** Install python dependencies ****" \
-        && python -m pip install --no-cache-dir --upgrade ${PYTHON_DEPENDENCIES} \
+        && python3 -m pip install --no-cache-dir --upgrade ${PYTHON_DEPENDENCIES} \
     && \
     echo "**** Install tizonia ****" \
         && apt-get install -y \
+            python3-distutils \
             pulseaudio-utils \
             libspotify12 \
             tizonia-all=${TIZONIA_VERSION} \

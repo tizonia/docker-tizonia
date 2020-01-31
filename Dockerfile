@@ -57,7 +57,7 @@ RUN \
     && \
     echo "**** Add additional apt repos ****" \
         && curl -ksSL 'http://apt.mopidy.com/mopidy.gpg' | apt-key add - \
-        && echo "deb http://apt.mopidy.com/ stable main contrib non-free" > /etc/apt/sources.list.d/libspotify.list \
+        && echo "deb http://apt.mopidy.com/ stretch main contrib non-free" > /etc/apt/sources.list.d/libspotify.list \
         && curl -ksSL 'https://bintray.com/user/downloadSubjectPublicKey?username=tizonia' | apt-key add - \
         && echo "deb https://dl.bintray.com/tizonia/ubuntu bionic main" > /etc/apt/sources.list.d/tizonia.list \
         && apt-get update \

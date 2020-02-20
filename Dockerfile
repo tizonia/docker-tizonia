@@ -9,7 +9,7 @@ LABEL maintainer "Josh Sunnex <jsunnex@gmail.com>"
 ###############################################################
 
 # Version of Tizonia to be installed
-ARG TIZONIA_VERSION=0.19.0-1
+ARG TIZONIA_VERSION=0.20.0-1
 
 # Configure username for executing process
 ENV UNAME tizonia

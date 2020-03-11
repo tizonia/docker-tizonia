@@ -43,7 +43,7 @@ $ docker-tizonia --youtube-audio-mix-search "Queen Official"
 
 ### Step 1)
 
-It is required that pulse audio to be installed via homebrew
+It is required that PulseAudio to be installed via `homebrew`
 (`brew install pulseaudio`), and the following lines in
 `/usr/local/Cellar/pulseaudio/13.0/etc/pulse/default.pa` to be uncommented:
 
@@ -54,7 +54,7 @@ load-module module-native-protocol-tcp
 
 ### Step 2)
 
-Too adjust the device being used for output, bring up a list of possible output devices and
+To choose the device being used for output, bring up a list of possible output devices and
 select one as the default sink:
 
 ```bash
@@ -71,8 +71,8 @@ Start the Pulseaudio daemon:
 pulseaudio --load=module-native-protocol-tcp --exit-idle-time=-1 --daemon
 ```
 
-You should now be able to utilize the docker container to route audio from the docker container
-to the host machine!
+You should now be able to utilize the `docker-tizonia` script to route audio from the docker
+container to the host machine!
 
 # License
 

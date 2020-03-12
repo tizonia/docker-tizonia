@@ -9,22 +9,26 @@ LABEL maintainer "Josh Sunnex <jsunnex@gmail.com>"
 ###############################################################
 
 # Version of Tizonia to be installed
-ARG TIZONIA_VERSION=0.18.0-1
+ARG TIZONIA_VERSION=0.20.0-1
 
 # Configure username for executing process
 ENV UNAME tizonia
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # A list of dependencies installed with
 ARG PYTHON_DEPENDENCIES=" \
         fuzzywuzzy>=0.17.0 \
         gmusicapi>=12.1.1 \
         pafy>=0.5.4 \
-        pycountry>=18.12.8 \
+        plexapi>=3.0.0 \
+        pycountry>=19.8.18 \
         python-levenshtein>=0.12.0 \
         soundcloud>=0.5.0 \
         spotipy>=2.4.4 \
         titlecase>=0.12.0 \
-        youtube-dl>=2019.8.2 \
+        youtube-dl>=2019.9.12.1 \
     "
 
 # Build Dependencies (not required in final image)
@@ -34,11 +38,11 @@ ARG BUILD_DEPENDENCIES=" \
         gnupg \
         libffi-dev \
         libssl-dev \
-        python-dev \
-        python-pip \
-        python-pkg-resources \
-        python-setuptools \
-        python-wheel \
+        python3-dev \
+        python3-pip \
+        python3-pkg-resources \
+        python3-setuptools \
+        python3-wheel \
     "
 
 ###############################################################
@@ -53,19 +57,25 @@ RUN \
     echo "**** Install package build tools ****" \
         && apt-get install -y --no-install-recommends \
             ${BUILD_DEPENDENCIES} \
+            locales \
+    && \
+    echo "**** Generate necessary locales ****" \
+        && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+            locale-gen \
     && \
     echo "**** Add additional apt repos ****" \
         && curl -ksSL 'http://apt.mopidy.com/mopidy.gpg' | apt-key add - \
-        && echo "deb http://apt.mopidy.com/ stable main contrib non-free" > /etc/apt/sources.list.d/libspotify.list \
+        && echo "deb http://apt.mopidy.com/ stretch main contrib non-free" > /etc/apt/sources.list.d/libspotify.list \
         && curl -ksSL 'https://bintray.com/user/downloadSubjectPublicKey?username=tizonia' | apt-key add - \
         && echo "deb https://dl.bintray.com/tizonia/ubuntu bionic main" > /etc/apt/sources.list.d/tizonia.list \
         && apt-get update \
     && \
     echo "**** Install python dependencies ****" \
-        && python -m pip install --no-cache-dir --upgrade ${PYTHON_DEPENDENCIES} \
+        && python3 -m pip install --no-cache-dir --upgrade ${PYTHON_DEPENDENCIES} \
     && \
     echo "**** Install tizonia ****" \
         && apt-get install -y \
+            python3-distutils \
             pulseaudio-utils \
             libspotify12 \
             tizonia-all=${TIZONIA_VERSION} \

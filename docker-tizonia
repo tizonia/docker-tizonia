@@ -16,5 +16,6 @@ docker run -it --rm \
     --volume="$runtime_dir":"$runtime_dir" \
     --volume="${HOME}/.config/tizonia":/home/tizonia/.config/tizonia \
     --volume="${HOME}/.config/pulse/cookie":/home/tizonia/.config/pulse/cookie \
+    --volume="${HOME}/.cache":/home/tizonia/.cache \
     --name tizonia \
     tizonia/docker-tizonia "$@";

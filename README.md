@@ -15,7 +15,7 @@ its use.
 
 ## Launch Command
 
-Use the convenience script [docker-tizonia](docker-tizonia):
+Use the convenience script [docker-tizonia](https://github.com/tizonia/docker-tizonia/blob/master/docker-tizonia):
 
 ``` bash
 #!/bin/bash

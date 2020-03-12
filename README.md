@@ -15,24 +15,7 @@ its use.
 
 ## Launch Command
 
-Use the convenience script [docker-tizonia](docker-tizonia):
-
-``` bash
-#!/bin/bash
-
-USER_ID=$(id -u);
-GROUP_ID=$(id -g);
-
-docker run -it --rm \
-    -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
-    --volume=${XDG_RUNTIME_DIR}/pulse:${XDG_RUNTIME_DIR}/pulse \
-    --volume="${HOME}/.config/tizonia":/home/tizonia/.config/tizonia \
-    --volume "${HOME}/.config/pulse/cookie":/home/tizonia/.config/pulse/cookie \
-    --volume="${HOME}/.cache":/home/tizonia/.cache \
-    --name tizonia \
-    tizonia/docker-tizonia "$@";
-
-```
+Use the convenience script [docker-tizonia](docker-tizonia).
 
 The script bind mounts the host's '$HOME/.config/tizonia' to make
 'tizonia.conf' available inside the container.
@@ -59,6 +42,41 @@ $ sudo install docker-tizonia /usr/local/bin
 $ docker-tizonia --youtube-audio-mix-search "Queen Official"
 
 ```
+
+## Mac Support
+
+### Step 1)
+
+It is required that PulseAudio to be installed via `homebrew`
+(`brew install pulseaudio`), and the following lines in
+`/usr/local/Cellar/pulseaudio/13.0/etc/pulse/default.pa` to be uncommented:
+
+```
+load-module module-esound-protocol-tcp
+load-module module-native-protocol-tcp
+```
+
+### Step 2)
+
+To choose the device being used for output, bring up a list of possible output devices and
+select one as the default sink:
+
+```bash
+pactl list short sinks
+
+pacmd set-default-sink n  # where n is the chosen output number
+```
+
+### Step 3)
+
+Start the Pulseaudio daemon:
+
+```bash
+pulseaudio --load=module-native-protocol-tcp --exit-idle-time=-1 --daemon
+```
+
+You should now be able to utilize the `docker-tizonia` script to route audio from the docker
+container to the host machine!
 
 # License
 

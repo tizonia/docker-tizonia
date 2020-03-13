@@ -3,11 +3,19 @@
 USER_ID=$(id -u);
 GROUP_ID=$(id -g);
 
+if uname -s | grep -iq "Darwin" ; then
+  pulse_server=docker.for.mac.localhost
+  runtime_dir="$HOME"
+else
+  pulse_server=unix:"${XDG_RUNTIME_DIR}/pulse/native"
+  runtime_dir="${XDG_RUNTIME_DIR}/pulse"
+fi
+
 docker run -it --rm \
-    -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native \
-    --volume=${XDG_RUNTIME_DIR}/pulse:${XDG_RUNTIME_DIR}/pulse \
+    -e PULSE_SERVER="$pulse_server" \
+    --volume="$runtime_dir":"$runtime_dir" \
     --volume="${HOME}/.config/tizonia":/home/tizonia/.config/tizonia \
-    --volume "${HOME}/.config/pulse/cookie":/home/tizonia/.config/pulse/cookie \
+    --volume="${HOME}/.config/pulse/cookie":/home/tizonia/.config/pulse/cookie \
+    --volume="${HOME}/.cache":/home/tizonia/.cache \
     --name tizonia \
     tizonia/docker-tizonia "$@";
-

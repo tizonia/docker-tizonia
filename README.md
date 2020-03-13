@@ -15,7 +15,7 @@ its use.
 
 ## Launch Command
 
-Use the convenience script [docker-tizonia](https://github.com/tizonia/docker-tizonia/blob/master/docker-tizonia).
+Use the convenience script [`docker-tizonia`].
 
 The script bind mounts the host's '$HOME/.config/tizonia' to make
 'tizonia.conf' available inside the container.
@@ -75,13 +75,15 @@ Start the Pulseaudio daemon:
 pulseaudio --load=module-native-protocol-tcp --exit-idle-time=-1 --daemon
 ```
 
-You should now be able to utilize the `docker-tizonia` script to route audio from the docker
+You should now be able to utilize the [`docker-tizonia`] script to route audio from the docker
 container to the host machine!
 
 # License
 
-The [Unlicense](LICENSE.md).
+The [Unlicense](https://github.com/tizonia/docker-tizonia/blob/master/LICENSE.md).
 
 # Tizonia's main repo
 
 See [tizonia-openmax-il](https://github.com/tizonia/tizonia-openmax-il).
+
+[`docker-tizonia`]: https://github.com/tizonia/docker-tizonia/blob/master/docker-tizonia

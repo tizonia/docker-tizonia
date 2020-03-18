@@ -1,4 +1,4 @@
-name: Update Docker Hub Description
+name: Lint Shell Scripts
 on:
   pull_request:
   push:

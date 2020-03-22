@@ -41,6 +41,8 @@ ARG BUILD_DEPENDENCIES=" \
         gnupg \
         libffi-dev \
         libssl-dev \
+        libxml2-dev \
+        libxslt1-dev \
         python3-dev \
         python3-pip \
         python3-pkg-resources \

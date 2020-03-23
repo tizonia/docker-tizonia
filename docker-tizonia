@@ -10,7 +10,7 @@ fi
 
 docker run -it --rm \
     -e PULSE_SERVER="$pulse_server" \
-    --volume=$runtime_dir:$runtime_dir \
+    --volume="$runtime_dir":"$runtime_dir" \
     --volume="${HOME}/.config/tizonia":/home/tizonia/.config/tizonia \
     --volume="${HOME}/.config/pulse/cookie":/home/tizonia/.config/pulse/cookie \
     --volume="${HOME}/.cache":/home/tizonia/.cache \

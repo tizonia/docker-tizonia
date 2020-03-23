@@ -11,5 +11,3 @@ jobs:
       - uses: actions/checkout@v2
       - name: Lint check
         uses: azohra/shell-linter@v0.2.0
-        with:
-          path: "docker-tionia,**.sh"

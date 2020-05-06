@@ -19,10 +19,13 @@ ENV LC_ALL en_US.UTF-8
 
 # A list of dependencies installed with
 ARG PYTHON_DEPENDENCIES=" \
+        eventlet>=0.25.1 \
         fuzzywuzzy>=0.17.0 \
         gmusicapi>=12.1.1 \
+        joblib>=0.14.1\
         pafy>=0.5.4 \
         plexapi>=3.0.0 \
+        pychromecast>=4.1.1 \
         pycountry>=19.8.18 \
         python-levenshtein>=0.12.0 \
         soundcloud>=0.5.0 \
@@ -38,6 +41,8 @@ ARG BUILD_DEPENDENCIES=" \
         gnupg \
         libffi-dev \
         libssl-dev \
+        libxml2-dev \
+        libxslt1-dev \
         python3-dev \
         python3-pip \
         python3-pkg-resources \

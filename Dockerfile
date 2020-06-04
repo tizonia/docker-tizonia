@@ -31,7 +31,7 @@ ARG PYTHON_DEPENDENCIES=" \
         soundcloud>=0.5.0 \
         spotipy>=2.4.4 \
         titlecase>=0.12.0 \
-        youtube-dl>=2019.9.12.1 \
+        youtube-dl>=2020.05.29 \
     "
 
 # Build Dependencies (not required in final image)

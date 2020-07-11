@@ -1,0 +1,21 @@
+name: Build Docker Image
+on:
+  pull_request:
+  push:
+    tags:
+      - '*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build Image, Push on tag
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: tizonia/docker-tizonia
+          tags: latest
+          tag_with_ref: true
+          add_git_labels: true
+          push: ${{ startsWith(github.ref, 'refs/tags/') }}

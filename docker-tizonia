@@ -1,8 +1,5 @@
 #!/bin/bash
 
-USER_ID=$(id -u);
-GROUP_ID=$(id -g);
-
 if uname -s | grep -iq "Darwin" ; then
   pulse_server=docker.for.mac.localhost
   runtime_dir="$HOME"

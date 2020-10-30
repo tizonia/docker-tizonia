@@ -48,7 +48,7 @@ $ docker-tizonia --youtube-audio-mix-search "Queen Official"
 ### Step 1)
 
 It is required that PulseAudio to be installed via `homebrew`
-(`brew install pulseaudio`), and the following lines in
+(`brew install pulseaudio`), and the following lines (by default at lines number 65 and 66) in
 `/usr/local/Cellar/pulseaudio/13.0/etc/pulse/default.pa` to be uncommented:
 
 ```
